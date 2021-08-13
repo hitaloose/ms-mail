@@ -7,7 +7,7 @@ steps:
   # Build
 - name: 'gcr.io/cloud-builders/npm'
   args: 
-  - 'run', 
+  - 'run'
   - 'build'
 
   # Deploy

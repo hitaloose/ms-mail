@@ -8,8 +8,38 @@ export class SendEmailController implements Controller {
   ) { }
 
   async run(request: HttpRequest): Promise<HttpResponse> {
-    await this.sendEmailUseCase.run(request.body)
+    try {
+      const { to, from, subject, content } = request.body
 
-    return { statusCode: 204 }
+      if (!to.name) {
+        return { statusCode: 400 }
+      }
+
+      if (!to.email) {
+        return { statusCode: 400 }
+      }
+
+      if (!from.name) {
+        return { statusCode: 400 }
+      }
+
+      if (!from.email) {
+        return { statusCode: 400 }
+      }
+
+      if (!subject) {
+        return { statusCode: 400 }
+      }
+
+      if (!content) {
+        return { statusCode: 400 }
+      }
+
+      const output = await this.sendEmailUseCase.run(request.body)
+
+      return { statusCode: 200, body: output }
+    } catch (err) {
+      return { statusCode: 500, body: err }
+    }
   }
 }

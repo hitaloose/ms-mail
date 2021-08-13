@@ -18,5 +18,6 @@ steps:
   - deploy
   - mail
   - --runtime=nodejs14
-  - --source=.
+  - --source=app
   - --trigger-http
+  - --allow-unauthenticated

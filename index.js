@@ -1,3 +1,3 @@
-const { app } = require("./dist/main/app");
+const { sendEmail } = require("./dist/main/sendEmail");
 
-module.exports = { app };
+module.exports = { sendEmail };

@@ -19,6 +19,7 @@ steps:
   - mail
   - --runtime=nodejs14
   - --source=.
-  - --entry-point=app
-  - --trigger-http
+  - --entry-point=sendEmail
+  - --trigger-topic
+  - SEND_EMAIL
   - --allow-unauthenticated

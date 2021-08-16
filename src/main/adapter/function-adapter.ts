@@ -5,7 +5,7 @@ import { Controller } from "../../application/contracts/controller";
 
 export const functionAdapter = (controller: Controller) => {
   return (event: PubsubMessage, context: Context) => {
-    console.log(event)
+    console.log(event.data?.toString())
     console.log(context)
   }
 }

@@ -5,8 +5,9 @@ import { Controller } from "../../application/contracts/controller";
 
 export const functionAdapter = (controller: Controller) => {
   return async (message: PubsubMessage, _: Context, callback: Function) => {
-    const data = Buffer.from(message.data as any, 'base64').toString()
-
+    const dataString = Buffer.from(message.data as any, 'base64').toString()
+    const data = JSON.parse(dataString)
+    
     const { statusCode, body } = await controller.run({ body: data })
 
     if (statusCode >= 200 && statusCode <= 299) {

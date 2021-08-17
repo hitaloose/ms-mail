@@ -17,8 +17,11 @@ steps:
   - functions
   - deploy
   - mail-hml
+  - --set-env-vars
+  - NODE_ENV=acceptance
   - --runtime=nodejs14
   - --source=.
-  - --entry-point=app
-  - --trigger-http
+  - --entry-point=sendEmail
+  - --trigger-topic
+  - HML/SEND_EMAIL
   - --allow-unauthenticated

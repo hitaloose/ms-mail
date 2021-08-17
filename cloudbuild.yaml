@@ -17,6 +17,8 @@ steps:
   - functions
   - deploy
   - mail
+  - --set-env-vars
+  - NODE_ENV=production
   - --runtime=nodejs14
   - --source=.
   - --entry-point=sendEmail

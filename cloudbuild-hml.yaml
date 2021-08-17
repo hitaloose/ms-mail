@@ -23,5 +23,5 @@ steps:
   - --source=.
   - --entry-point=sendEmail
   - --trigger-topic
-  - HML/SEND_EMAIL
+  - HML_SEND_EMAIL
   - --allow-unauthenticated
